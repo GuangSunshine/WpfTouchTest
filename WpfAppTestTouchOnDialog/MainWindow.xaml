@@ -6,22 +6,49 @@
         xmlns:local="clr-namespace:WpfAppTestTouchOnDialog"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DockPanel LastChildFill="True">
-            <Grid DockPanel.Dock="Top">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
-                </Grid.RowDefinitions>    
-                <Button Grid.Row="0" x:Name="btnShowSys" Click="btnShowSys_Click"
-                    Height="48" Margin="20,10">Button 1: Show System.Window.MessageBox(this)</Button>
-                <!--<Button Grid.Row="1" x:Name="btnShowCustomDialog" Click="btnShowCustomDialog_Click"
-                    Height="48" Margin="20,10">Show simple custom dialog</Button>-->
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" x:Name="btnShowSysMBox" Click="btnShowSysMBox_Click"
+                        GotFocus="btnShowSysMBox_GotFocus" LostFocus="btnShowSysMBox_LostFocus"
+                        GotTouchCapture="btnShowSysMBox_GotTouchCapture" LostTouchCapture="btnShowSysMBox_LostTouchCapture"
+                        PreviewTouchDown="btnShowSysMBox_PreviewTouchDown" PreviewTouchMove="btnShowSysMBox_PreviewTouchMove" PreviewTouchUp="btnShowSysMBox_PreviewTouchUp"
+                        TouchEnter="btnShowSysMBox_TouchEnter" TouchDown="btnShowSysMBox_TouchDown"
+                        TouchMove="btnShowSysMBox_TouchMove" TouchUp="btnShowSysMBox_TouchUp" TouchLeave="btnShowSysMBox_TouchLeave"
+                        Height="48" Margin="20,10" Grid.ColumnSpan="2">Step 1: Show System.Window.MessageBox(this)</Button>
+
+                <Label Grid.Row="1" Height="200" Background="LightGray" Margin="20,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Tap here while the MessageBox is showing!" FontSize="24"/>
             </Grid>
-            
-            <Grid DockPanel.Dock="Bottom">
-                <Label Background="LightGray" Margin="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Tap here like crazy while the modal message box is showing"/>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="20,10" Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="Btn10" Grid.Column="0" Margin="4" Content="Click me" Click="BtnClicked_UpdateStatus"></Button>
+                    <Button Name="Btn11" Grid.Column="1" Margin="4" Content="Click me" Click="BtnClicked_UpdateStatus"></Button>
+                    <Button Name="Btn12" Grid.Column="2" Margin="4" Content="Click me" Click="BtnClicked_UpdateStatus"></Button>
+                    <Button Name="Btn13" Grid.Column="3" Margin="4" Content="Click me" Click="BtnClicked_UpdateStatus"></Button>
+                    <Button Name="Btn14" Grid.Column="4" Margin="4" Content="Click me" Click="BtnClicked_UpdateStatus"></Button>
+                </Grid>
+
+                <Label Grid.Row="1" Name="lbStatus" Background="LightGray" Margin="20,2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="status"/>
             </Grid>
-        </DockPanel>
+      
     </Grid>
 </Window>
